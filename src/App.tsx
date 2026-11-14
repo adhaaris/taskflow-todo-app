@@ -67,12 +67,11 @@ export default function App() {
             addTask();
           }}
         >
-          {" "}
           <input
             value={title}
             onChange={(event) => setTitle(event.target.value)}
-            placeholder="Write one Task"
-            aria-label="New Task"
+            placeholder="Write one task"
+            aria-label="New task"
           />
           <button className="btn btn-success">Add task</button>
         </form>
@@ -93,7 +92,7 @@ export default function App() {
               </button>
             ))}
           </div>
-          <span className="count">{remaining} tasks left</span>
+          <span className="count">{remaining} {remaining === 1 ? "task" : "tasks"} left</span>
         </div>
 
         <ul className="task-list">
@@ -139,6 +138,7 @@ export default function App() {
                   <button
                     className="btn btn-sm btn-outline-secondary"
                     onClick={() => startEdit(task)}
+                    aria-label={`Edit ${task.text}`}
                   >
                     Edit
                   </button>
@@ -161,7 +161,7 @@ export default function App() {
               : "No tasks match this filter."}
           </p>
         )}
-      </main>
+      </main >
     </>
   );
 }
